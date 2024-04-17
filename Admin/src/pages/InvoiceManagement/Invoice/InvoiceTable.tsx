@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import TableContainer from "../../../Common/Tabledata/TableContainer";
 import { DeleteModal } from '../../../Common/DeleteModal';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, Col, Dropdown, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
@@ -14,9 +14,14 @@ import { handleSearchData } from '../../../Common/Tabledata/SorttingData';
 import NoSearchResult from '../../../Common/Tabledata/NoSearchResult';
 import EditInvoice from '../../../Common/CrudModal/EditInvoice';
 import InvoiceWidget from './InvoiceWidget';
+import * as XLSX from 'xlsx';
+import { toast } from 'react-toastify';
+import { setIsSuccess } from '../../../slices/invoices/reducer';
+import { useProfile } from '../../../Hooks/UserHooks';
 
 const InvoiceTable = () => {
 
+  const { userProfile } = useProfile();
   const dispatch = useDispatch();
 
   const selectClientInvoiceList = createSelector(
@@ -30,9 +35,11 @@ const InvoiceTable = () => {
   const { clientInvoicesList } = useSelector(selectClientInvoiceList)
 
   const [invoices, setInvoices] = useState<any>([])
+  let navigate = useNavigate();
+  const { isSuccess } = useSelector((state: any) => state.Invoice);
 
   useEffect(() => {
-    dispatch(onGetClientInvoices())
+    dispatch(onGetClientInvoices({limit: undefined}))
   }, [dispatch]);
 
   useEffect(() => {
@@ -43,12 +50,15 @@ const InvoiceTable = () => {
 
   const [delet, setDelet] = useState<boolean>(false);
   const [deletid, setDeletid] = useState<any>();
-  const handleDeleteModal = useCallback((id: any) => {
+
+  const handleDeleteModal = (id: any) => {
     setDelet(!delet);
+    console.log(id, "This is the id")
     setDeletid(id);
-  }, [delet])
+  }
 
   const handleDeleteId = () => {
+    console.log(deletid, "This is the id")
     dispatch(onDeleteClientInvoices(deletid.id))
     setDelet(false)
   }
@@ -63,7 +73,73 @@ const InvoiceTable = () => {
       handleSearchData({ data: clientInvoicesList, item: item, setState: setInvoices })
     }
   }
+  const downloadSingleIvoice = (invoice: any) => {
+    const invoiceToDownload = [{
+      'Invoice Number': invoice.invoiceNumber,
+      'Amount': invoice.amount,
+      'Priority': invoice.priority,
+      'Status': invoice.status,
+      'Type of Expense': invoice.typeOfExpense,
+      'Expense Type': invoice.expenseType,
+      'Line of Business': invoice.lineOfBusiness,
+      'Department Name': invoice.departmentName,
+      'Serial Number': invoice.serialNumber || '', // Handle null value for serialNumber
+      ...(userProfile.role === 'Super Admin' || userProfile.role === 'Admin' ? {
+        'Bank': invoice.bank || '',
+        'Bank Reference': invoice.bankReference || '',
+        'Bank Amount': invoice.bankAmount || '',
+        'Payment Status': invoice.paymentStatus
+      } : {}),
+      'Currency': invoice.currency,
+      'Business Unit': invoice.businessUnit,
+      'Description': invoice.description,
+      'User': `${invoice.User.firstName} ${invoice.User.lastName}`,
+      'Created At': invoice.createdAt.split('T')[0], // Format createdAt to remove time
+    }]
+    // Convert the array of objects to a worksheet
+    const worksheet = XLSX.utils.json_to_sheet(invoiceToDownload, { skipHeader: false });
+    // Create a workbook
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
 
+    // Export the workbook to an Excel file
+    XLSX.writeFile(workbook, `${invoice.invoiceNumber}.xlsx`);
+  }
+  const handleExport = () => {
+    // Map invoices to include additional fields and format user full name
+    const invoicesWithUserFullName = invoices.map((invoice: any) => ({
+      'Invoice Number': invoice.invoiceNumber,
+      'Amount': invoice.amount,
+      'Priority': invoice.priority,
+      'Status': invoice.status,
+      'Type of Expense': invoice.typeOfExpense,
+      'Expense Type': invoice.expenseType,
+      'Line of Business': invoice.lineOfBusiness,
+      'Department Name': invoice.departmentName,
+      'Serial Number': invoice.serialNumber || '', // Handle null value for serialNumber
+      ...(userProfile.role === 'Super Admin' || userProfile.role === 'Admin' ? {
+        'Bank': invoice.bank || '',
+        'Bank Reference': invoice.bankReference || '',
+        'Bank Amount': invoice.bankAmount || '',
+        'Payment Status': invoice.paymentStatus
+      } : {}),
+      'Currency': invoice.currency,
+      'Business Unit': invoice.businessUnit,
+      'Description': invoice.description,
+      'User': `${invoice.User.firstName} ${invoice.User.lastName}`,
+      'Created At': invoice.createdAt.split('T')[0], // Format createdAt to remove time
+    }));
+
+    // Convert the array of objects to a worksheet
+    const worksheet = XLSX.utils.json_to_sheet(invoicesWithUserFullName, { skipHeader: false });
+    console.log(worksheet, "This is the work sheet")
+    // Create a workbook
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+    // Export the workbook to an Excel file
+    XLSX.writeFile(workbook, 'output.xlsx');
+  };
   // edit data
 
   const [editInvoices, setEditInvoices] = useState<boolean>(false);
@@ -128,7 +204,7 @@ const InvoiceTable = () => {
         Cell: (cell: any) => {
           return (
             <div>
-              <Link to="#" className="text-body align-middle fw-medium">{cell.row.original.userId.firstName + " " + cell.row.original.userId.lastName}</Link>
+              <Link to="#" className="text-body align-middle fw-medium">{cell.row.original.User.firstName + " " + cell.row.original.User.lastName}</Link>
             </div>
           )
         }
@@ -197,19 +273,21 @@ const InvoiceTable = () => {
             <Dropdown.Menu className="dropdown-menu-end">
               <li>
                 <Dropdown.Item to="#"><i className="las la-eye fs-18 align-middle me-2 text-muted"></i>
-              <Link to={`/invoice-add/${cell.row.original._id}`} className="text-body align-middle fw-medium">View</Link>
+                  <Link to={`/invoice-add/${cell.row.original.id}`} className="text-body align-middle fw-medium">View</Link>
 
-                  
+
                 </Dropdown.Item>
               </li>
-              <li>
+              {/* <li>
                 <Dropdown.Item onClick={() => { const item = cell.row.original; handleEditInvoices(item); }}
                 ><i className="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                  Edit</Dropdown.Item>
-              </li>
+                  <Link to={`/invoice-add/${cell.row.original.id}`} className="text-body align-middle fw-medium">Edit</Link>
+                </Dropdown.Item>
+              </li> */}
               <li>
-                <Dropdown.Item to="#"><i className="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                  Download</Dropdown.Item>
+                <Dropdown.Item onClick={() => downloadSingleIvoice(cell.row.original)} to="#"><i className="las la-file-download fs-18 align-middle me-2 text-muted"></i>
+                  Download
+                </Dropdown.Item>
               </li>
               <li className="dropdown-divider"></li>
               <li>
@@ -224,13 +302,22 @@ const InvoiceTable = () => {
         )
       },
     ], [handleDeleteModal])
+  useEffect(() => {
+    if (isSuccess) {
+      // toast.success('Invoice Added Successfully');
+      dispatch(setIsSuccess(false))
+      // setTimeout(() => {
+      // }, 2000)
+    }
+  }, [isSuccess])
   return (
     <React.Fragment>
       <Row className="pb-4 gy-3">
-        <Col sm={4}>
-          <Link to="/invoice-add" className="btn btn-primary addMembers-modal"><i className="las la-plus me-1"></i> Add Invoices</Link>
-        </Col>
-
+        {
+          (userProfile.role !== 'Super Admin' || userProfile.role !== 'Admin') && <Col sm={4}>
+            <Link to="/invoice-add" className="btn btn-primary addMembers-modal"><i className="las la-plus me-1"></i> Add Requests</Link>
+          </Col>
+        }
         <div className="col-sm-auto ms-auto">
           <div className="d-flex gap-3">
             <div className="search-box">
@@ -241,7 +328,7 @@ const InvoiceTable = () => {
               <Dropdown.Toggle as="button" className="btn btn-soft-info btn-icon fs-14 arrow-none"><i className="las la-ellipsis-v fs-18"></i></Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item>Print</Dropdown.Item>
-                <Dropdown.Item>Export to Excel</Dropdown.Item>
+                <Dropdown.Item onClick={handleExport}>Export to Excel</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -261,7 +348,7 @@ const InvoiceTable = () => {
                   columns={columns}
                   data={invoices || []}
                   customPageSize={9}
-                  divClassName="table-card table-responsive"
+                  divClassName="table-card table-responsive table-min-height"
                   tableClass="table-hover table-nowrap align-middle mb-0"
                   isBordered={false}
                   PaginationClass="align-items-center mt-4 gy-3"

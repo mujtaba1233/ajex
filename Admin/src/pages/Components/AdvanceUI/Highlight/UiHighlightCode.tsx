@@ -7,7 +7,7 @@ const htmlHighlightCode =
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Invoika Admin & Dashboard Template</title>
+        <title>Ajex Admin & Dashboard Template</title>
     </head>
     <body>
         <div>

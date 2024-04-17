@@ -1,33 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getTransactionData ,getClientInvoices, editClientInvoices,deleteClientInvoices ,getPaymentSummary,
-        editPaymentSummary,deletePaymentSummary,getUsers,addUsers,editUsers, deleteUsers , getProductList ,deleteProductList, getPayments ,
-        editProductList, addPayment, editPayment, deletePayment} from "./thunk";
+import {
+    getTransactionData, getClientInvoices, editClientInvoices, deleteClientInvoices, getPaymentSummary,
+    editPaymentSummary, deletePaymentSummary, getUsers, addUsers, editUsers, addOrEditClientInvoices, deleteUsers, getProductList, deleteProductList, getPayments,
+    editProductList, addPayment, editPayment, deletePayment
+} from "./thunk";
 
 export const initialState = {
     transactionList: [],
-    clientInvoicesList:[],
-    paymentSummaryList :[],
-    usersList:[],
-    productList:[],
-    paymentList:[],
-    error:{}
+    clientInvoicesList: [],
+    paymentSummaryList: [],
+    usersList: [],
+    isSuccess: false,
+    productList: [],
+    paymentList: [],
+    error: {}
 };
 
-const InvoiceSlice:any = createSlice({
+const InvoiceSlice: any = createSlice({
     name: "Invoice",
     initialState,
-    reducers: {},
+    reducers: {
+        setIsSuccess: (state, action) => {
+            state.isSuccess = action.payload
+        }
+    },
 
-    extraReducers: (builder:any) => {
+    extraReducers: (builder: any) => {
         //Invoice Transaction 
         builder.addCase(getTransactionData.fulfilled, (state: any, action: any) => {
             state.transactionList = action.payload;
         });
         builder.addCase(getTransactionData.rejected, (state: any, action: any) => {
             state.error = action.payload.error || null;
-        });  
-        
+        });
+
         builder.addCase(getClientInvoices.fulfilled, (state: any, action: any) => {
             console.log(action.payload)
             state.clientInvoicesList = action.payload;
@@ -87,12 +94,22 @@ const InvoiceSlice:any = createSlice({
             state.usersList = action.payload;
         });
 
-        // add
+        // add users
         builder.addCase(addUsers.fulfilled, (state: any, action: any) => {
             state.usersList.push(action.payload);
         });
         builder.addCase(addUsers.rejected, (state: any, action: any) => {
             state.error = action.payload.error || null;
+
+        });
+
+        // add
+        builder.addCase(addOrEditClientInvoices.fulfilled, (state: any, action: any) => {
+            state.isSuccess = true;
+        });
+        builder.addCase(addOrEditClientInvoices.rejected, (state: any, action: any) => {
+            state.isSuccess = false;
+
         });
 
         builder.addCase(getUsers.rejected, (state: any, action: any) => {
@@ -150,11 +167,11 @@ const InvoiceSlice:any = createSlice({
             state.paymentList = action.payload;
         });
 
-        
+
         builder.addCase(getPayments.rejected, (state: any, action: any) => {
             state.error = action.payload.error || null;
         });
-        
+
         // add
         builder.addCase(addPayment.fulfilled, (state: any, action: any) => {
             state.paymentList.push(action.payload);
@@ -183,5 +200,7 @@ const InvoiceSlice:any = createSlice({
         });
     }
 })
+
+export const { setIsSuccess } = InvoiceSlice.actions;
 
 export default InvoiceSlice.reducer

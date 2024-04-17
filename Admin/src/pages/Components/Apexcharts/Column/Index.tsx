@@ -17,7 +17,7 @@ import DistributedColumn from './DistributedColumn'
 import ColumnGroupLabels from './ColumnGroupLabels'
 
 const ColumnChart = () => {
-    document.title = "Apex Column Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Column Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

@@ -4,7 +4,7 @@ import { Button, Card, Col, OverlayTrigger, Popover, Row } from 'react-bootstrap
 import { PopoversExample } from './UiGeneralCode';
 
 const Popovers = () => {
-    document.title=" General | Invoika Admin & Dashboard Template";
+    document.title=" General | Ajex Admin & Dashboard Template";
 
     return (
         <React.Fragment>

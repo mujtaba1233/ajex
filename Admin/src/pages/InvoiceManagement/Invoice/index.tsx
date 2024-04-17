@@ -4,13 +4,13 @@ import { Container } from 'react-bootstrap';
 import InvoiceTable from './InvoiceTable';
 
 const Invoice = () => {
-  document.title="Invoice | Invoika Admin & Dashboard Template";
+  document.title="Request | Ajex Admin & Dashboard";
 
   return (
     <React.Fragment>
         <div className="page-content">
             <Container fluid>
-                <BreadCrumb pageTitle="Invoice" title="Invoice" />                
+                <BreadCrumb pageTitle="Requests" title="Request" />                
                 <InvoiceTable/>
             </Container>    
         </div>

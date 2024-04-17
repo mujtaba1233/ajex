@@ -4,7 +4,7 @@ import { Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { FormGrid, Gutters } from './FormLayoutsCode';
 
 const GridGutters = () => {
-    document.title=" Form layout | Invoika Admin & Dashboard Template";
+    document.title=" Form layout | Ajexmin & Dashboard Template";
 
     return (
         <React.Fragment>

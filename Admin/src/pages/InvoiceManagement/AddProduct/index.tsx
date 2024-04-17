@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const AddProduct = () => {
-    document.title="Add Product | Invoika Admin & Dashboard Template";
+    document.title="Add Product | Ajex Admin & Dashboard Template";
 
   const [selectedFiles, setselectedFiles] = useState<any>([]);
 

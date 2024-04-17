@@ -36,7 +36,7 @@ const ForgotPassword = (props:any) => {
     );
 
     const { forgetError, forgetSuccessMsg } = useSelector(selectForgetPassword);
-    document.title = "Forgot Password | Invoika Admin & Dashboard Template";
+    document.title = "Forgot Password | Ajex Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -62,7 +62,7 @@ const ForgotPassword = (props:any) => {
                                                     <div className="p-lg-5 p-4">
                                                         <div className="text-center">
                                                             <h5 className="mb-0">Forgot Password?</h5>
-                                                            <p className="text-muted mt-2">Reset password with Invoika</p>
+                                                            <p className="text-muted mt-2">Reset password with Ajex</p>
                                                         </div>
 
                                                         <div className="text-center my-5">

@@ -5,7 +5,7 @@ import BasicPolar from './BasicPolar'
 import PolarMonochrome from './PolarMonochrome'
 
 const PolarChart = () => {
-    document.title = "Apex Polararea Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Polararea Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

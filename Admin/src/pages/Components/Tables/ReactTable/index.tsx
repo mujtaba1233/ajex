@@ -4,7 +4,7 @@ import { DefaultTable, PaginationTable, SearchTable, SortingTable, LoadingStateT
 import BreadCrumb from '../../../../Common/BreadCrumb';
 
 const ReactTable = () => {
-  document.title = " React Tables | Invoika Admin & Dashboard Template";
+  document.title = " React Tables | Ajex Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

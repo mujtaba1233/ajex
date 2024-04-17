@@ -10,7 +10,7 @@ import PatternedDonut from './PatternedDonut'
 import ImagePieChart from './ImagePieChart'
 
 const PieChart = () => {
-    document.title = "Apex Pie Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Pie Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

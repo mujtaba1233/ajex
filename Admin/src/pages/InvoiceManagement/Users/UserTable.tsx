@@ -73,15 +73,16 @@ const UserTable = ({ isShow, hideUserModal }: userProps) => {
     
     const handleCloseEdit = () => setEditUser(false);
     const handleEditUser = (item: any) => {
+        console.log(item, "This is the item")
         setEditUser(true)
         setEdit({
             id: item.id,
-            memberName: item.memberName,
-            memberImage: item.memberImage,
+            firstName: item.firstName,
+            lastName: item.lastName,
+            isActivated: item.isActivated,
             email: item.email,
-            mobile: item.mobile,
-            registeredOn: item.registeredOn,
-            status: item.status
+            phoneNumber: item.phoneNumber,
+            role: item.Role.name,
         })
         
     }
@@ -136,8 +137,8 @@ const UserTable = ({ isShow, hideUserModal }: userProps) => {
             accessor: "role",
             Filter: false,
             isSortable: true,
-            Cell: (cell) => {         
-                return <span className="badge bg-success-subtle text-success p-2">{cell.row.original.role.name}</span>                         
+            Cell: (cell) => {    
+                return <span className="badge bg-success-subtle text-success p-2">{cell.row.original.Role.name}</span>                         
             }
           },             
           {
@@ -205,7 +206,7 @@ const UserTable = ({ isShow, hideUserModal }: userProps) => {
                                     columns={columns}
                                     data={users || []}
                                     customPageSize={9}
-                                    divClassName="table-card table-responsive"
+                                    divClassName="table-card table-responsive table-min-height"
                                     tableClass="table-hover table-nowrap align-middle mb-0"
                                     isBordered={false}
                                     PaginationClass="align-items-center mt-4 gy-3"

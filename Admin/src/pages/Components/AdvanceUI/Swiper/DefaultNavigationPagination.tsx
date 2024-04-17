@@ -24,7 +24,7 @@ import "swiper/css/effect-flip";
 import 'swiper/scss/pagination';
 
 const DefaultNavigationPagination = () => {
-    document.title = " Swiper Slider | Invoika Admin & Dashboard Template";
+    document.title = " Swiper Slider | Ajex Admin & Dashboard Template";
 
 
     return (

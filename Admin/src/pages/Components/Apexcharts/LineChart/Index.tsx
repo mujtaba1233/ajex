@@ -16,7 +16,7 @@ import ChartSyncingLine2 from './ChartSyncingLine2'
 import ChartSyncingArea from './ChartSyncingArea'
 
 const Linechart = () => {
-    document.title = "Apex Line Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Line Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">            

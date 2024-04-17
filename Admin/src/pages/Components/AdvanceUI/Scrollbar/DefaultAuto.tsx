@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
 
 const DefaultAuto = () => {
-    document.title=" Scrollbar | Invoika Admin & Dashboard Template";
+    document.title=" Scrollbar | Ajex Admin & Dashboard Template";
 
     return (
         <React.Fragment>

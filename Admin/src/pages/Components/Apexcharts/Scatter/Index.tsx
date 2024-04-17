@@ -6,7 +6,7 @@ import Datetime from './Datetime'
 import ImagesChart from './ImageChart'
 
 const ScatterChart = () => {
-    document.title = "Apex Scatter Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Scatter Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

@@ -8,7 +8,7 @@ import SalesRevenue from './SalesRevenue';
 
 
 const Dashboard = () => {
-  document.title = "Dashboard | Invoika Admin & Dashboard Template";
+  document.title = "Dashboard | Ajex Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -17,7 +17,7 @@ const Dashboard = () => {
                 <BreadCrumb pageTitle="Dashboard" title="Dashboard" />
                 <ProffesionalWidgets/>
                 <PaymentActivity/>
-                <QuickInvoice/>
+                {/* <QuickInvoice/> */}
                 <SalesRevenue/>
                 </Container>
                 </div>

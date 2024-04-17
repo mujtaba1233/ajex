@@ -13,7 +13,7 @@ const Structure = () => {
                                             <h5 className="card-title mb-2 text-truncate">Structure</h5>
                                         </div>
                                         <div className="flex-shrink-0 ms-2">
-                                            <Dropdown>
+                                            {/* <Dropdown>
                                             <Dropdown.Toggle as="a" className="text-reset arrow-none">
                                                     <span className="fw-semibold text-uppercase fs-14">Sort By:</span> <span
                                                         className="text-muted">Weekly<i className="las la-angle-down fs-12 ms-2"></i></span>
@@ -23,7 +23,7 @@ const Structure = () => {
                                                     <Dropdown.Item >Monthly</Dropdown.Item>
                                                     <Dropdown.Item >Weekly</Dropdown.Item>
                                                 </Dropdown.Menu>
-                                            </Dropdown>
+                                            </Dropdown> */}
                                         </div>
                                     </div>
 

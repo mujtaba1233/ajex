@@ -3,7 +3,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 import { Card, Col, Row } from 'react-bootstrap';
 
 const FormEditors = () => {
-    document.title="Editors | Invoika Admin & Dashboard Template";
+    document.title="Editors | Ajexmin & Dashboard Template";
 
 
     const editorRef = useRef<any>();

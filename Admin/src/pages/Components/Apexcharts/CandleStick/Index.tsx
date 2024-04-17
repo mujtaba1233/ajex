@@ -8,7 +8,7 @@ import Category from './Category'
 import CandlestickLine from './CandlestickLine'
 
 const Candlestick = () => {
-    document.title = "Apex Candlestick Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Candlestick Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content"> 

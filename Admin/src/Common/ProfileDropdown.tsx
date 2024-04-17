@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 //import images
-import avatar1 from "../assets/images/users/avatar-4.jpg"
+import avatar1 from "../assets/images/users/user-dummy-img.jpg"
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
@@ -21,9 +21,7 @@ const ProfileDropdown = () => {
         const authUser: any = sessionStorage.getItem("authUser");
         if (authUser) {
             const obj = JSON.parse(authUser);
-            setUserName(process.env.REACT_APP_DEFAULTAUTH === "fake" ? obj.username === undefined ? user.username ? user.username : obj.data.first_name : "Admin" || "Admin" :
-                process.env.REACT_APP_DEFAULTAUTH === "firebase" ? obj.email && obj.email : "Admin"
-            );
+            setUserName(obj.email);
         }
     }, [userName, user]);
 

@@ -3,7 +3,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 import { Card, Col, Nav, Row, Tab } from 'react-bootstrap';
 
 const DefaultJustify = () => {
-  document.title=" Tabs | Invoika - Admin & Dashboard Template";
+  document.title=" Tabs | AjexAdmin & Dashboard Template";
 
   return (
     <React.Fragment>

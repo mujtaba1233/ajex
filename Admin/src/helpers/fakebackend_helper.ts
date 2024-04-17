@@ -69,7 +69,7 @@ export const postSocialLogin = (data: any) => api.create(url.SOCIAL_LOGIN, data)
 export const getTransactionData = () => api.get(url.GET_TRANSACTIONS, null);
 
 
-export const getClientInvoices = () => api.get(url.GET_CLIENT_INVOICES, null);
+export const getClientInvoices = (data: any) => api.get(url.GET_CLIENT_INVOICES, data);
 export const addOrEditClientInvoicesApi = (data: any) => api.create(url.ADD_EDIT_CLIENT_INVOICES, data);
 export const editClientInvoices = (data: any) => api.put(url.ADD_EDIT_CLIENT_INVOICES, data);
 export const deleteClientInvoices = (id: any) => api.delete(url.DELETE_CLIENT_INVOICES, { headers: { id } });

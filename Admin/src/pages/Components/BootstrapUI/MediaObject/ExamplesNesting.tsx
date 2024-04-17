@@ -9,7 +9,7 @@ import avatar3 from '../../../../assets/images/users/avatar-3.jpg'
 import avatar4 from '../../../../assets/images/users/avatar-4.jpg'
 
 const ExamplesNesting = () => {
-    document.title=" Media Object | Invoika Admin & Dashboard Template";
+    document.title=" Media Object | Ajex Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page">

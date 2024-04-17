@@ -9,7 +9,7 @@ import img1 from '../../../../assets/images/small/img-1.jpg'
 import img2 from '../../../../assets/images/small/img-2.jpg'
 
 const Default = () => {
-    document.title=" Placeholders | Invoika - Admin & Dashboard Template";
+    document.title=" Placeholders | AjexAdmin & Dashboard Template";
 
     return (
         <React.Fragment>

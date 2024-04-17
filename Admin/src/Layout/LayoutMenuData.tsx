@@ -3,6 +3,7 @@
 
 
 import React, { useEffect, useState } from "react";
+import { useProfile } from "../Hooks/UserHooks";
 
 const Navdata = () => {
     //state data
@@ -13,7 +14,7 @@ const Navdata = () => {
     const [isProducts, setIsProducts] = useState(false);
     const [isReport, setIsReport] = useState(false);
     const [isTransaction, setIsTransaction] = useState(false);
-    
+
     // Components
     const [isBootstrapUi, setIsBootstrapUi] = useState(false);
     const [isAdvanceUi, setIsAdvanceUi] = useState(false);
@@ -23,10 +24,11 @@ const Navdata = () => {
     const [isIcons, setIsIcons] = useState(false);
     const [isMaps, setIsMaps] = useState(false);
 
+    const { token, userProfile } = useProfile();
 
 
     const [isOrder, setIsOrder] = useState(false);
-    
+
     const [isAuth, setIsAuth] = useState(false);
     const [isMultiLevel, setIsMultiLevel] = useState(false);
 
@@ -45,7 +47,7 @@ const Navdata = () => {
                 item.classList.remove("active");
                 var id: any = item.getAttribute("sub-items");
                 var menusId = document.getElementById(id);
-                if (menusId){
+                if (menusId) {
                     (menusId.parentElement as HTMLElement).classList.remove("show");
                 }
             });
@@ -55,11 +57,11 @@ const Navdata = () => {
     useEffect(() => {
         document.body.classList.remove('twocolumn-panel');
 
-        
+
         if (iscurrentState !== 'Invoice Management') {
             setIsInvoiceManagement(false);
         }
-        
+
         if (iscurrentState !== 'Authentication') {
             setIsAuthentication(false);
         }
@@ -100,9 +102,9 @@ const Navdata = () => {
             setIsAuth(false);
         }
     }, [
-        iscurrentState,       
-        isInvoiceManagement,        
-        isOrder,        
+        iscurrentState,
+        isInvoiceManagement,
+        isOrder,
         isAuth,
         isProducts,
         isReport,
@@ -110,7 +112,7 @@ const Navdata = () => {
         isAuthentication,
         isPages,
         isBootstrapUi,
-        isAdvanceUi,        
+        isAdvanceUi,
         isForms,
         isTables,
         isCharts,
@@ -122,22 +124,22 @@ const Navdata = () => {
         {
             label: "Menu",
             isHeader: true,
-        },        
+        },
         {
             id: "dashboard",
             label: "Dashboard",
             icon: "las la-house-damage",
-            link: "/dashboard",           
+            link: "/dashboard",
 
         },
         {
             label: "Pages",
             isHeader: true,
         },
-        
+
         {
             id: "invoiceManagement",
-            label: "Invoices Management",
+            label: "Request Management",
             icon: "las la-file-invoice",
             link: "/#",
             click: function (e: any) {
@@ -147,14 +149,14 @@ const Navdata = () => {
                 updateIconSidebar(e);
             },
             stateVariables: isInvoiceManagement,
-            subItems: [
-                { id: 1, label: "Invoice", link: "/invoice", parentId: "invoiceManagement" },
+            subItems: (userProfile.role == 'Super Admin' || userProfile.role == 'Admin') ? [
+                { id: 1, label: "Requests", link: "/invoice", parentId: "invoiceManagement" },
                 // { id: 2, label: "Add Invoice", link: "/invoice-add", parentId: "invoiceManagement" },
                 // { id: 2, label: "Invoice Details", link: "/invoice-details", parentId: "invoiceManagement" },
-                { id: 7, label: "Users", link: "/user", parentId: "invoiceManagement" },
-            ],
+                { id: 7, label: "Users", link: "/user", parentId: "invoiceManagement" }
+            ] : [{ id: 1, label: "Requests", link: "/invoice", parentId: "invoiceManagement" }]
         },
-        
+
         // {
         //     id: "authentication",
         //     label: "Authentication",
@@ -194,7 +196,7 @@ const Navdata = () => {
         //         },             
         //     ],
         // },
-        
+
         // {
         //     label: "Components",
         //     isHeader: true,
@@ -262,7 +264,7 @@ const Navdata = () => {
         //         { id: 4, label: "Highlight", link: "/advance-ui-highlight", parentId: "advanceui" },
         //     ],
         // },
-        
+
         // {
         //     id: "forms",
         //     label: "Forms",

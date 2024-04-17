@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Col, Dropdown } from 'react-bootstrap';
-import { invoiceList } from "../../Common/data/index"
 import axios from 'axios';
 import { useProfile } from '../../Hooks/UserHooks';
 
@@ -14,20 +13,22 @@ const InvoiceList = () => {
                 Authorization: `Bearer ${token}`,
             },
         }
-        const invoices = await axios.get(`${process.env.REACT_APP_API_URL}/invoices`, config)
-        setInvoices(invoices.data)
+        const invoices: any = await axios.get(`${process.env.REACT_APP_API_URL}/invoices?limit=6&skip=1`, config)
+        setInvoices(invoices)
     }
 
     useEffect(() => {
         fetchInvoices()
-    }, [])
+    }, []);
+
+
     return (
         <React.Fragment>
             <Col xl={5}>
                 <Card>
                     <Card.Header className="border-0 align-items-center d-flex">
                         <h4 className="card-title mb-0 flex-grow-1">Invoice List</h4>
-                        <Dropdown>
+                        {/* <Dropdown>
                             <Dropdown.Toggle as="a" className="text-reset arrow-none">
                                 <span className="fw-semibold text-uppercase fs-14">Sort By: </span>  <span className="text-muted">Weekly<i className="las la-angle-down fs-12 ms-2"></i></span>
                             </Dropdown.Toggle>
@@ -35,7 +36,7 @@ const InvoiceList = () => {
                                 <Dropdown.Item>Monthly</Dropdown.Item>
                                 <Dropdown.Item>Yearly</Dropdown.Item>
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
                     </Card.Header>
                     <Card.Body className="pt-2">
                         <div className="table-responsive table-card">
@@ -55,12 +56,12 @@ const InvoiceList = () => {
                                         <th scope="col">Line Of Business</th>
                                         <th scope="col">Department Name</th>
                                         <th scope="col" style={{ width: "16%" }}>Status </th>
-                                        <th scope="col" style={{ width: "12%" }}>Action</th>
+                                        {/* <th scope="col" style={{ width: "12%" }}>Action</th> */}
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {/* {invoices.map((invoiceListData: any, key: any) => (
+                                    {invoices && invoices.length && invoices.map((invoiceListData: any, key: any) => (
                                         <tr key={key}>
                                             <td>
                                                 <div className="form-check">
@@ -69,14 +70,15 @@ const InvoiceList = () => {
                                             </td>
                                             <td><p className="mb-0">{invoiceListData.invoiceNumber}</p></td>
                                             <td>
-                                                <p>{invoiceListData.firstName + " " + invoiceListData.lastName}</p>
+                                                <p className="mb-0">{invoiceListData.User.firstName + " " + invoiceListData.User.lastName}</p>
                                             </td>
-                                            <td>{invoiceListData.createdAt}</td>
-                                            <td>{invoiceListData.expenseType}</td>
+                                            <td> <p className="mb-0">{invoiceListData.createdAt}</p></td>
+                                            <td><p className="mb-0">{invoiceListData.expenseType} </p></td>
+                                            <td><p className="mb-0">{invoiceListData.typeOfExpense}</p></td>
                                             <td>{invoiceListData.lineOfBusiness}</td>
-                                            <td>{invoiceListData.departmentName}</td>
+                                            <td><p className="mb-0">{invoiceListData.departmentName}</p></td>
                                             <td><span className={`badge ${invoiceListData.status} p-2`}>{invoiceListData.status}</span></td>
-                                            <td>
+                                            {/* <td>
                                                 <Dropdown>
                                                     <Dropdown.Toggle as="button" className="btn btn-soft-secondary btn-sm arrow-none" size="sm">
                                                         <i className="las la-ellipsis-h align-middle fs-18"></i>
@@ -103,11 +105,10 @@ const InvoiceList = () => {
                                                         </li>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
-                                            </td>
+                                            </td> */}
                                         </tr>
 
-                                    ))} */}
-
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

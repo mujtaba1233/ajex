@@ -9,7 +9,7 @@ import MultipleSeries from './MultipleSeries'
 import Dumbbell from './Dumbbell'
 
 const TimelineChart = () => {
-    document.title = "Apex Timeline Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Timeline Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

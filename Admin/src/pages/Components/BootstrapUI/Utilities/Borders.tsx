@@ -3,7 +3,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 import { Card, Col, Row } from 'react-bootstrap';
 
 const Borders = () => {
-    document.title=" Utilities | Invoika Admin & Dashboard Template";
+    document.title=" Utilities | Ajexmin & Dashboard Template";
 
     return (
         <React.Fragment>

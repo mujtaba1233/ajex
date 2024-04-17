@@ -14,7 +14,7 @@ const mapStyles = {
 const LoadingContainer = () => <div>Loading...</div>
 const GoogleMap = (props: any) => {
 
-  document.title = " Google Maps | Invoika Admin & Dashboard Template";
+  document.title = " Google Maps | Ajex Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

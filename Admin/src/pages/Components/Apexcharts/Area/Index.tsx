@@ -14,7 +14,7 @@ import IrregularAreaCharts from './IrregularAreaCharts'
 import AreaNullValueChart from './AreaNullValueChart'
 
 const AreaChart = () => {
-    document.title = "Apex Area Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Area Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

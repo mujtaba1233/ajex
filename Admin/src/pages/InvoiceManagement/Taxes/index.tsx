@@ -5,7 +5,7 @@ import { taxesList } from '../../../Common/data/index';
 import TableContainer from '../../../Common/Tabledata/TableContainer';
 
 const Taxes = () => {
-    document.title="Taxes | Invoika Admin & Dashboard Template";
+    document.title="Taxes | Ajex Admin & Dashboard Template";
 
     const [modal_standard, setmodal_standard] = useState<boolean>(false);
     function tog_standard() {

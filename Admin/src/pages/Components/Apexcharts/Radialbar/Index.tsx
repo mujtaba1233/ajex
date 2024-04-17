@@ -10,7 +10,7 @@ import ImageRadialbar from './ImageRadialbar'
 import SemiCircularRadial from './SemiCircularRadial'
 
 const RadialbarChart = () => {
-    document.title = "Apex Radialbar Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Radialbar Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

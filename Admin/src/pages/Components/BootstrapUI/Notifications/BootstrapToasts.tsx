@@ -6,7 +6,7 @@ import { BootstrapToastsExample } from './UiNotificationCode';
 import logosm from "../../../../assets/images/logo-sm.png"
 
 const BootstrapToasts = () => {
-    document.title=" Notifications | Invoika Admin & Dashboard Template";
+    document.title=" Notifications | Ajex Admin & Dashboard Template";
 
     const [toast1, setToast1] = useState(true);
     const [toast2, setToast2] = useState(true);
@@ -42,7 +42,7 @@ const BootstrapToasts = () => {
                                             <Toast className="fade" show={toast1} onClose={togglesetToast1}>
                                                 <Toast.Header>
                                                     <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                    <span className="fw-semibold me-auto">Invoika</span>
+                                                    <span className="fw-semibold me-auto">Ajex</span>
                                                     <small>06 mins ago</small>
                                                 </Toast.Header>
                                                 <Toast.Body>
@@ -57,7 +57,7 @@ const BootstrapToasts = () => {
                                                     <Toast className="fade" show={toast2} onClose={togglesetToast2}>
                                                         <Toast.Header>
                                                             <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                            <span className="fw-semibold me-auto">Invoika</span>
+                                                            <span className="fw-semibold me-auto">Ajex</span>
                                                             <small>11 mins ago</small>
                                                         </Toast.Header>
                                                         <Toast.Body>
@@ -77,7 +77,7 @@ const BootstrapToasts = () => {
                                                     <Toast className="fade" show={toast3} onClose={togglesetToast3}>
                                                         <Toast.Header>
                                                             <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                            <span className="fw-semibold me-auto">Invoika</span>
+                                                            <span className="fw-semibold me-auto">Ajex</span>
                                                             <small>Just now</small>
                                                         </Toast.Header>
                                                         <Toast.Body>
@@ -88,7 +88,7 @@ const BootstrapToasts = () => {
                                                     <Toast className="fade" show={toast4} onClose={togglesetToast4}>
                                                         <Toast.Header>
                                                             <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                            <span className="fw-semibold me-auto">Invoika</span>
+                                                            <span className="fw-semibold me-auto">Ajex</span>
                                                             <small>2 seconds ago</small>
                                                         </Toast.Header>
                                                         <Toast.Body>
@@ -117,7 +117,7 @@ const BootstrapToasts = () => {
                                                         <Toast className="fade" show={toast5} onClose={togglesetToast5} style={{ position: "absolute", top: "16px", right: "16px" }}>
                                                             <Toast.Header>
                                                                 <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                                <span className="fw-semibold me-auto">Invoika</span>
+                                                                <span className="fw-semibold me-auto">Ajex</span>
                                                                 <small>06 mins ago</small>
                                                             </Toast.Header>
                                                             <Toast.Body>
@@ -137,7 +137,7 @@ const BootstrapToasts = () => {
                                                         <Toast className="fade" show={toast6} onClose={togglesetToast6}>
                                                             <Toast.Header>
                                                                 <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                                <span className="fw-semibold me-auto">Invoika</span>
+                                                                <span className="fw-semibold me-auto">Ajex</span>
                                                                 <small>11 mins ago</small>
                                                             </Toast.Header>
                                                             <Toast.Body>

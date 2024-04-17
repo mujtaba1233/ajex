@@ -7,7 +7,7 @@ import TableContainer from '../../../Common/Tabledata/TableContainer';
 
 
 const TransactionList = () => {
-    document.title="Transaction List | Invoika Admin & Dashboard Template";
+    document.title="Transaction List | Ajex Admin & Dashboard Template";
 
     interface columnsType {
         Header: any,

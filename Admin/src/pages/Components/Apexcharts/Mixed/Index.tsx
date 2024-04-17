@@ -7,7 +7,7 @@ import Area from './Area'
 import LineColumnArea from './LineColumnArea'
 
 const MixedChart = () => {
-    document.title = "Apex Mixed Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Mixed Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

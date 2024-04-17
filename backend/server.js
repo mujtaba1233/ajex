@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
@@ -17,11 +17,21 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(express.json());
 app.use(cors('*'));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to Database'));
+// Connect to MySQL
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL');
+});
 
 // Routes
 app.use('/api/invoices', invoiceRoutes);

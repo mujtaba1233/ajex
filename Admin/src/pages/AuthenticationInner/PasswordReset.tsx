@@ -7,7 +7,7 @@ import { useFormik } from 'formik'
 import * as Yup from "yup";
 
 const PasswordReset = () => {
-  document.title = "Password reset | Invoika Admin & Dashboard Template";
+  document.title = "Password reset | Ajex Admin & Dashboard Template";
 
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ const PasswordReset = () => {
                                                     <div className="p-lg-5 p-4">
                                                         <div className="text-center">
                                                             <h5 className="mb-0">Forgot Password?</h5>
-                                                            <p className="text-muted mt-2">Reset password with Invoika</p>
+                                                            <p className="text-muted mt-2">Reset password with Ajex</p>
                                                         </div>
 
                                                         <div className="text-center my-5">
@@ -132,7 +132,7 @@ const PasswordReset = () => {
                                     
                                     <div className="mt-5 text-center">
                                         <p className="mb-0 text-muted">©
-                                            <script>document.write(new Date().getFullYear())</script> Invoika. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                                            <script>document.write(new Date().getFullYear())</script> Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                                         </p>
                                     </div>
                                 </div>

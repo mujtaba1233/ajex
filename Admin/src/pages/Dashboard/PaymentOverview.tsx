@@ -5,12 +5,12 @@ import { PaymentOverviewData } from './PaymentOverviewData'
 const PaymentOverview = () => {
   return (
     <React.Fragment>
-        <Col xl={4}>
+        <Col xl={12}>
             <Card>
                 <Card.Header className="border-0 align-items-center d-flex pb-2">
                     <h4 className="card-title mb-0 flex-grow-1">Payment Overview</h4>
                     <div>
-                        <Dropdown>
+                        {/* <Dropdown>
                             <Dropdown.Toggle as="a" className="text-reset arrow-none">
                                 <span className="fw-semibold text-uppercase fs-14">Sort By: </span> <span className="text-muted">Monthly<i className="las la-angle-down fs-12 ms-2"></i></span>
                             </Dropdown.Toggle>
@@ -18,7 +18,7 @@ const PaymentOverview = () => {
                                 <Dropdown.Item>Monthly</Dropdown.Item>
                                 <Dropdown.Item>Yearly</Dropdown.Item>
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
                     </div>
                 </Card.Header>
                 <Card.Body className="pt-0">

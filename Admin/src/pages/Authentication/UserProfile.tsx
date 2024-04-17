@@ -21,7 +21,7 @@ import { createSelector } from "reselect";
 import { editProfile, resetProfileFlag } from "../../slices/profile/thunk";
 
 const UserProfile = () => {
-  document.title = "User Profile | Invoika Admin & Dashboard Template";
+  document.title = "User Profile | Ajex Admin & Dashboard Template";
 
   const dispatch: any = useDispatch();
 
@@ -174,7 +174,7 @@ const UserProfile = () => {
 
                                         <div className="mt-5 text-center">
                                             <p className="mb-0 text-muted">
-                                                &copy; {new Date().getFullYear()} Invoika. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                                             </p>
                                         </div>
                                     </div>

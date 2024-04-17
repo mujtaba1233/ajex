@@ -3,7 +3,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const BootstrapIcon = () => {
-    document.title=" Bootstrap Icons | Invoika Admin & Dashboard Template";
+    document.title=" Bootstrap Icons | Ajex Admin & Dashboard Template";
 
   return (
     <React.Fragment>

@@ -6,7 +6,7 @@ import logoLight from "../../../assets/images/logo-light.png"
 import { Link } from 'react-router-dom';
 
 const InvoiceDetails = () => {
-    document.title = "Invoice Details | Invoika Admin & Dashboard Template";
+    document.title = "Invoice Details | Ajex Admin & Dashboard Template";
     return (
     <React.Fragment>
         <div className="page-content">
@@ -50,7 +50,7 @@ const InvoiceDetails = () => {
                                                 <h6 className="text-muted text-uppercase fw-semibold">Address</h6>
                                                 <p className="text-muted mb-1" id="address-details">California, United States</p>
                                                 <p className="text-muted mb-1" id="zip-code"><span>Zip-code:</span> 90201</p>
-                                                <h6><span className="text-muted fw-normal">Email:</span><span id="email">Invoika@themesbrand.com</span></h6>
+                                                <h6><span className="text-muted fw-normal">Email:</span><span id="email">Ajex@themesbrand.com</span></h6>
                                                 <h6><span className="text-muted fw-normal">Website:</span> <a href="https://themesbrand.com/" className="link-primary" target="_blank" rel="noreferrer" id="website">www.themesbrand.com</a></h6>
                                                 <h6 className="mb-0"><span className="text-muted fw-normal">Contact No: </span><span id="contact-no"> +(01) 234 6789</span></h6>
                                             </div>
@@ -155,7 +155,7 @@ const InvoiceDetails = () => {
                                                                 <td className="text-end">$44.99</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Discount <small className="text-muted">(Invoika15)</small></td>
+                                                                <td>Discount <small className="text-muted">(Ajex15)</small></td>
                                                                 <td className="text-end">- $53.99</td>
                                                             </tr>
                                                             <tr>

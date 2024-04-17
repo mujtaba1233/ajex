@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { HeadingsExample, DisplayHeadingExample } from './UiTypographyCode';
 
 const FontDisplay = () => {
-    document.title=" Typograpgy | Invoika Admin & Dashboard Template";
+    document.title=" Typograpgy | Ajexmin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page">

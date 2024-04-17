@@ -8,7 +8,7 @@ icons = JSON.parse(icons);
 var iconData = "";
 
 const RemixIcons = () => {
-  document.title=" Remix Icons | Invoika Admin & Dashboard Template";
+  document.title=" Remix Icons | Ajex Admin & Dashboard Template";
 
 
   useEffect(() => {

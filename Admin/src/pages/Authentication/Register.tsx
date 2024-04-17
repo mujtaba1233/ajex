@@ -10,7 +10,7 @@ import { createSelector } from 'reselect';
 import { apiError, registerUser, resetRegisterFlag } from '../../slices/register/thunk';
 
 const Register = () => {
-    document.title = "Register | Invoika Admin & Dashboard Template";
+    document.title = "Register | Ajex Admin & Dashboard Template";
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -96,7 +96,7 @@ const Register = () => {
                                                     <div className="p-lg-5 p-4">
                                                         <div className="text-center">
                                                             <h5 className="mb-0">Create New Account</h5>
-                                                            <p className="text-muted mt-2">Get your free Invoika account now</p>
+                                                            <p className="text-muted mt-2">Get your free Ajex account now</p>
                                                         </div>
                                                     
                                                         <div className="mt-4">
@@ -168,7 +168,7 @@ const Register = () => {
                                                             </Form.Group>
                     
                                                                 <div className="fs-16 pb-2">
-                                                                    <p className="mb-0 fs-14 text-muted fst-italic">By registering you agree to the Invoika <Link to="#" className="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</Link></p>
+                                                                    <p className="mb-0 fs-14 text-muted fst-italic">By registering you agree to the Ajex <Link to="#" className="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</Link></p>
                                                                 </div>
                     
                                                                 <div className="mt-2">
@@ -218,7 +218,7 @@ const Register = () => {
                                     
                                     <div className="mt-5 text-center">
                                         <p className="mb-0 text-muted">©
-                                            <script>document.write(new Date().getFullYear())</script> Invoika. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                                            <script>document.write(new Date().getFullYear())</script> Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                                         </p>
                                     </div>
                                 </div>

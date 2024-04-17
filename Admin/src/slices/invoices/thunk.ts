@@ -34,9 +34,9 @@ export const getTransactionData = createAsyncThunk("invoice/getTransactionData",
     }
 });
 
-export const getClientInvoices = createAsyncThunk("invoice/getInvoices", async () => {
+export const getClientInvoices = createAsyncThunk("invoice/getInvoices", async (data: any) => {
   try {
-    const response = getClientInvoicesApi();
+    const response = getClientInvoicesApi(data);
       return response;
   } catch (error) {
       return error;
@@ -45,8 +45,8 @@ export const getClientInvoices = createAsyncThunk("invoice/getInvoices", async (
 
 export const editClientInvoices = createAsyncThunk("invoice/editClientInvoices", async (invoice: any) => {
   try {
-      const response = editClientInvoicesApi(invoice);
-      const data = await response;
+      const response = await editClientInvoicesApi(invoice);
+      const data = response;
       toast.success("Invoices edited Successfully", { autoClose: 2000 });
       return data;
   } catch (error) {
@@ -57,9 +57,8 @@ export const editClientInvoices = createAsyncThunk("invoice/editClientInvoices",
 
 export const addOrEditClientInvoices = createAsyncThunk("invoice/addOrEditClientInvoices", async (invoice: any) => {
   try {
-      const response = addOrEditClientInvoicesApi(invoice);
-      const data = await response;
-      toast.success("Invoices edited Successfully", { autoClose: 2000 });
+      const response = await addOrEditClientInvoicesApi(invoice);
+      const data = response;
       return data;
   } catch (error) {
       toast.error("Invoices edited Failed", { autoClose: 2000 });

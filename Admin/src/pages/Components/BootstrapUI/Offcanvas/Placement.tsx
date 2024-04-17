@@ -260,7 +260,7 @@ const Placement = () => {
                                                     </div>
                                                     <div className="flex-grow-1 ms-3">
                                                         <h6 className="mb-1">Bethany Johnson</h6>
-                                                        <p className="text-muted mb-2">added a new member to Invoika dashboard</p>
+                                                        <p className="text-muted mb-2">added a new member to Ajexshboard</p>
                                                         <small className="mb-0 text-muted">19 Nov</small>
                                                     </div>
                                                 </div>
@@ -519,7 +519,7 @@ const Placement = () => {
                                                     </div>
                                                     <div className="flex-grow-1 ms-3">
                                                         <h6 className="mb-1">Bethany Johnson</h6>
-                                                        <p className="text-muted mb-2">added a new member to Invoika dashboard</p>
+                                                        <p className="text-muted mb-2">added a new member to Ajexshboard</p>
                                                         <small className="mb-0 text-muted">19 Nov</small>
                                                     </div>
                                                 </div>

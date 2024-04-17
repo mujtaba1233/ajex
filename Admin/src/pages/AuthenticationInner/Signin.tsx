@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const Signin = () => {
-  document.title = "Login | Invoika Admin & Dashboard Template";
+  document.title = "Login | Ajex Admin & Dashboard Template";
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ const Signin = () => {
                                                     <Card.Body className="p-lg-5 p-4">
                                                         <div className="text-center">
                                                             <h5 className="mb-0">Welcome Back !</h5>
-                                                            <p className="text-muted mt-2">Sign in to continue to Invoika.</p>
+                                                            <p className="text-muted mt-2">Sign in to continue to Ajex.</p>
                                                         </div>
 
                                                         <div className="mt-4">
@@ -156,7 +156,7 @@ const Signin = () => {
 
                                         <div className="mt-5 text-center">
                                             <p className="mb-0 text-muted">
-                                                &copy; {new Date().getFullYear()} Invoika. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                                             </p>
                                         </div>
                                     </div>

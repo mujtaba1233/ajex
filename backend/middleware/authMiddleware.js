@@ -18,7 +18,7 @@ const protect = asyncHandler(async (req, res, next) => {
 
 
       // Get the user from the token
-      const user = await User.findById(decoded.id).select('-password');
+      const user = await User.findByPk(decoded.id);
 
       // Check if the user is activated
       if (!user.isActivated) {

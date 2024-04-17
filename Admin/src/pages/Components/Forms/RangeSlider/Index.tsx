@@ -7,7 +7,7 @@ import ColorScheme from './ColorScheme';
 // import SizeStyling from './SizeStyling';
 
 const RangeSliders = () => {
-    document.title = "Range Slider | Invoika - Admin & Dashboard Template";
+    document.title = "Range Slider | Ajex"
     return (
         <React.Fragment>
             <Container fluid>

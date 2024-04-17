@@ -92,7 +92,7 @@ const Login = (props:any) => {
                                         <div className="text-center mb-5">
                                             <Link to="/">
                                                 <span className="logo-lg">
-                                                    <img src={logoDark} alt="" height="21" />
+                                                    AJEX.
                                                 </span>
                                             </Link>
                                         </div>

@@ -4,7 +4,7 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { BrowserDefaults } from './FormValidationCode';
 
 const Browserdefault = () => {
-    document.title=" Validation | Invoika Admin & Dashboard Template";
+    document.title=" Validation | Ajex Admin & Dashboard Template";
 
     return (
         <React.Fragment>

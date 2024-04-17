@@ -4,10 +4,7 @@ import { useDispatch } from 'react-redux';
 import * as Yup from "yup";
 import { addUsers as onAddUsers } from '../../slices/thunk';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
-import moment from 'moment';
-import FlatPickr from 'react-flatpickr';
-import dummy from "../../assets/images/users/user-dummy-img.jpg";
-import { PatternFormat } from 'react-number-format';
+import { useSelector } from 'react-redux';
 
 interface userProps {
     isShow: boolean,
@@ -29,7 +26,7 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
             isActivated: false,
             role: '',
             password: '',
-            status: ''
+            // status: ''
         },
         validationSchema: Yup.object({
             firstName: Yup.string().required("Please enter first name"),
@@ -39,10 +36,11 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
             isActivated: Yup.boolean().required('Please select registered date'),
             role: Yup.string().required('Please select role'),
             password: Yup.string().required('Please enter password'),
-            status: Yup.string().required("Please choose status"),
+            // status: Yup.string().required("Please choose status"),
         }),
 
         onSubmit: (values: any) => {
+            console.log("I am here")
             let newid = (Math.floor(Math.random() * (30 - 20)) + 20);
             const newUser = {
                 id: newid,
@@ -53,9 +51,9 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
                 isActivated: values['isActivated'],
                 role: values['role'],
                 password: values['password'],
-                status: values['status']
+                // status: values['status']
             }
-
+            console.log(newUser, "This sis the user")
             dispatch(onAddUsers(newUser));
             formik.resetForm();
 
@@ -153,7 +151,6 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
                                     </div>
                                 </Col>
                             </Row>
-                            {/* Remaining form controls */}
                             <div className="mb-3">
                                 <Form.Label htmlFor="isActivated">Is Activated</Form.Label>
                                 <Form.Check
@@ -181,7 +178,7 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
                                 >
                                     <option value="">Select Role</option>
                                     <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                    <option value="Staff">Staff</option>
                                 </Form.Control>
                                 {formik.errors.role && formik.touched.role ? (
                                     <Form.Control.Feedback type="invalid">{formik.errors.role}</Form.Control.Feedback>

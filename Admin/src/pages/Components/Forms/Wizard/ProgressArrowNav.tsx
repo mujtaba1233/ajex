@@ -7,7 +7,7 @@ import logoDark from '../../../../assets/images/logo-dark.png'
 import dummyUser from "../../../../assets/images/users/user-dummy-img.jpg";
 
 const ProgressArrowNav = () => {
-    document.title=" Wizard | Invoika Admin & Dashboard Template";
+    document.title=" Wizard | Ajex Admin & Dashboard Template";
 
 
     const [activeTab, setactiveTab] = useState<number>(0);

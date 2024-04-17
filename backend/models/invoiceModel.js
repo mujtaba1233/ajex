@@ -1,56 +1,104 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../database');
+const User = require('../models/userModel');
+const Supplier = require('../models/supplierModel');
 
-const invoiceSchema = new mongoose.Schema({
-    invoiceNumber: {
-        type: String,
-        required: true
+const Invoice = sequelize.define('Invoice', {
+  // Define attributes
+  invoiceNumber: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  amount: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  priority: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  typeOfExpense: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  expenseType: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  lineOfBusiness: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  departmentName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  serialNumber: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  bank: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  bankReference: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  bankAmount: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+  },
+  paymentStatus: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  currency: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  businessUnit: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id',
     },
-    amount: {
-        type: Number,
-        required: true
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  supplierId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: Supplier,
+      key: 'id',
     },
-    priority: {
-        type: String,
-        required: true
-    },
-    status: {
-        type: String,
-        required: true
-    },
-    typeOfExpense: {
-        type: String,
-        required: true
-    },
-    expenseType: {
-        type: String,
-        required: true
-    },
-    lineOfBusiness: {
-        type: String,
-        required: true
-    },
-    departmentName: {
-        type: String,
-        required: true
-    },
-    userId: {
-        type: mongoose.Types.ObjectId,
-        required: [true, 'Please add a password'],
-        ref: "User"
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    supplierId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Supplier'
-    },
-    attachments: [{ name: String, data: String, contentType: String }] // Array of attachments with name and base64 data
+  },
+  attachments: {
+    type: DataTypes.JSON,
+    defaultValue: [],
+    allowNull: false,
+  },
 }, {
-    timestamps: true
+  timestamps: true,
 });
 
-const Invoice = mongoose.model('Invoice', invoiceSchema);
+Invoice.belongsTo(User, { foreignKey: 'userId' });
+Invoice.belongsTo(Supplier, { foreignKey: 'supplierId' });
 
 module.exports = Invoice;

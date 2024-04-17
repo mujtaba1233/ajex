@@ -3,7 +3,7 @@ import { Alert, Card, Col, Row } from 'react-bootstrap';
 import BreadCrumb from '../../../../Common/BreadCrumb';
 
 const DefaultAlerts = () => {
-  document.title=" Alerts | Invoika -Admin & Dashboard Template";
+  document.title=" Alerts | Ajex -Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page">

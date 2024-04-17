@@ -18,7 +18,7 @@ interface usereditProps {
 }
 
 const EditUsers = ({ isShow, handleClose, edit }: usereditProps) => {
-
+    console.log(edit, "This sis the edit")
     // image
     const [selectedImage, setSelectedImage] = useState<any>();
 
@@ -38,31 +38,34 @@ const EditUsers = ({ isShow, handleClose, edit }: usereditProps) => {
         enableReinitialize: true,
         initialValues: {
             id: (edit && edit.id) || '',
-            memberName: (edit && edit.memberName) || '',
-            memberImage: (edit && edit.memberImage) || '',
+            firstName: (edit && edit.firstName) || '',
+            lastName: (edit && edit.lastName) || '',
+            isActivated: (edit && edit.isActivated) || '',
             email: (edit && edit.email) || '',
-            mobile: (edit && edit.mobile) || '',
-            registeredOn: (edit && edit.registeredOn) || '',
-            status: (edit && edit.status) || ''
+            phoneNumber: (edit && edit.phoneNumber) || '',
+            role: (edit && edit.role) || '',
+            password: (edit && edit.password) || ''
         },
         validationSchema: Yup.object({
-            memberName: Yup.string().required("Please Enter Member Name"),
-            memberImage: Yup.string().required("Please Select Member Name"),
-            email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Please Enter Your Email"),
-            mobile: Yup.string().required('Please Enter Your Mobile Number'),
-            registeredOn: Yup.string().required('Please Select registered date'),
-            status: Yup.string().required("Please choose Your status"),
+            firstName: Yup.string().required("Please enter first name"),
+            lastName: Yup.string().required("Please enter last name"),
+            email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Please enter your email"),
+            phoneNumber: Yup.string().required('Please enter your phone number'),
+            isActivated: Yup.boolean().required('Please select registered date'),
+            role: Yup.string().required('Please select role'),
+            password: Yup.string().required('Please enter password'),
         }),
 
         onSubmit: (values: any) => {            
             const UpdateUser = {
-                id: values.id,
-                memberName: values.memberName,
-                memberImage: values.memberImage,
-                email: values.email,
-                mobile: values.mobile,
-                registeredOn: values.registeredOn,
-                status: values.status
+                id: edit.id,
+                firstName: values['firstName'],
+                lastName: values['lastName'],
+                email: values['email'],
+                phoneNumber: values['phoneNumber'],
+                isActivated: values['isActivated'],
+                role: values['role'],
+                password: values['password'],
             }
 
             dispatch(onEditUsers(UpdateUser));
@@ -77,137 +80,167 @@ const EditUsers = ({ isShow, handleClose, edit }: usereditProps) => {
 
     return (
         <React.Fragment>
-            <Modal centered show={isShow} onHide={handleClose} style={{ display: "block" }} tabIndex={-1}>
-                <div className="modal-content border-0">
-                    <Modal.Header className="p-4 pb-0">
-                        <Modal.Title as="h5">Edit User</Modal.Title>
-                        <button type="button" className="btn-close" onClick={handleClose}></button>
-                    </Modal.Header>
-                    <Modal.Body className="p-4">
-                        <Form autoComplete="off" onSubmit={formik.handleSubmit}>
-                            <div className="text-center">
-                                <div className="position-relative d-inline-block">
-                                    <div className="position-absolute bottom-0 end-0">
-                                        <Form.Label htmlFor="product-image-input" className="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
-                                            <div className="avatar-xs cursor-pointer">
-                                                <div className="avatar-title bg-light border rounded-circle text-muted">
-                                                    <i className="ri-image-fill"></i>
-                                                </div>
-                                            </div>
-                                        </Form.Label>
-                                        <Form.Control name="memberImage" className="form-control d-none" value="" id="product-image-input" type="file" accept="image/png, image/gif, image/jpeg" onChange={handleImageChange} />
-                                    </div>
-                                    <div className="avatar-lg p-1">
-                                        <div className="avatar-title bg-light rounded-circle">
-                                            <img src={selectedImage || dummy} alt="" id="product-img" className="avatar-md rounded-circle object-cover" />
-                                        </div>
-                                    </div>
+        <Modal centered show={isShow} onHide={handleClose} style={{ display: "block" }} tabIndex={-1}>
+            <div className="modal-content border-0">
+                <Modal.Header className="p-4 pb-0">
+                    <Modal.Title as="h5">Edit User</Modal.Title>
+                    <button type="button" className="btn-close" onClick={handleClose}></button>
+                </Modal.Header>
+                <Modal.Body className="p-4">
+                    <Form autoComplete="off" onSubmit={formik.handleSubmit}>
+                        <Row>
+                            <Col md={6}>
+                                <div className="mb-3">
+                                    <Form.Label htmlFor="firstName">First Name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder="Enter first name"
+                                        value={formik.values.firstName || ''}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        isInvalid={!!formik.errors.firstName}
+                                    />
+                                    {formik.errors.firstName && formik.touched.firstName ? (
+                                        <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.firstName}</Form.Control.Feedback>
+                                    ) : null}
                                 </div>
-                                {formik.errors.memberImage && formik.touched.memberImage ? (
-                                    <Form.Control.Feedback type="invalid" className='d-block'> {formik.errors.memberImage} </Form.Control.Feedback>
-                                ) : null}
-                            </div>
-
-                            <div className="mb-3">
-                                <Form.Label htmlFor="users">Member Name</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    id="memberName"
-                                    name="memberName"
-                                    placeholder="Enter member name"
-                                    value={formik.values.memberName || ''}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    isInvalid={!!formik.errors.memberName}
-                                />
-                                {formik.errors.memberName && formik.touched.memberName ? (
-                                    <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.memberName}</Form.Control.Feedback>
-                                ) : null}
-                            </div>
-                            <div className="mb-3">
-                                <Form.Label htmlFor="Email-input">Email<span className="text-danger">*</span></Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    id="Email-input"
-                                    name="email"
-                                    placeholder="Enter Your email"
-                                    value={formik.values.email || ''}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    isInvalid={!!formik.errors.email}
-                                />
-                                {formik.errors.email && formik.touched.email ? (
-                                    <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
-                                ) : null}
-                            </div>
-                            <div className="mb-3">
-                                <Form.Label htmlFor="users">Mobile</Form.Label>
-                                <PatternFormat
-                                    id="mobile"
-                                    name="mobile"
-                                    className='form-control'
-                                    placeholder="Enter Your Mobile"
-                                    value={formik.values.mobile || ''}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    format="###-###-####" />
-                                {formik.errors.mobile && formik.touched.mobile ? (
-                                    <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.mobile}</Form.Control.Feedback>
-                                ) : null}
-                            </div>
-                            <Row>
-                                <Col lg={6}>
-                                    <div className="mb-3">
-                                        <Form.Label htmlFor="Name">Registered Date</Form.Label>
-                                        <FlatPickr
-                                            className="form-control"
-                                            id="registeredOn"
-                                            name="registeredOn"
-                                            placeholder="Select date"
-                                            options={{
-                                                mode: "single",
-                                                dateFormat: 'd M, Y',
-                                            }}
-                                            onChange={(registeredOn: any) => formik.setFieldValue("registeredOn", moment(registeredOn[0]).format("DD MMMM ,YYYY"))}
-                                            value={formik.values.registeredOn || ''}
-                                        />
-                                        {formik.errors.registeredOn && formik.touched.registeredOn ? (
-                                            <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.registeredOn}</Form.Control.Feedback>
-                                        ) : null}
-                                    </div>
-                                </Col>
-                                <Col lg={6}>
-                                    <div className="mb-3">
-                                        <label htmlFor="status" className="form-label">Status</label>                                       
-                                        <Form.Select
-                                            id="paymentType"
-                                            name="status"
-                                            placeholder="Enter Payment type"
-                                            value={formik.values.status || ''}
-                                            onChange={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            isInvalid={!!formik.errors.status}
-                                        >
-                                            <option disabled>Select Status</option>
-                                            <option value="Active">Active</option>
-                                            <option value="Disabled">Disabled</option>
-                                        </Form.Select>
-                                        {formik.errors.status && formik.touched.status ? (
-                                            <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.status}</Form.Control.Feedback>
-                                        ) : null}
-                                    </div>
-                                </Col>
-                            </Row>
-                            <div className="hstack gap-2 justify-content-end">
-                                <Button type="button" className="btn btn-light" onClick={handleClose}>Close</Button>
-                                <Button type="submit" className="btn btn-success" onClick={handleClose}>Edit User</Button>
-                            </div>
-
-                        </Form>
-                    </Modal.Body>
-                </div>
-            </Modal>
-        </React.Fragment>
+                            </Col>
+                            <Col md={6}>
+                                <div className="mb-3">
+                                    <Form.Label htmlFor="lastName">Last Name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder="Enter last name"
+                                        value={formik.values.lastName || ''}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        isInvalid={!!formik.errors.lastName}
+                                    />
+                                    {formik.errors.lastName && formik.touched.lastName ? (
+                                        <Form.Control.Feedback type="invalid" className='d-block'>{formik.errors.lastName}</Form.Control.Feedback>
+                                    ) : null}
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={6}>
+                                <div className="mb-3">
+                                    <Form.Label htmlFor="email">Email</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Enter email"
+                                        value={formik.values.email || ''}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        isInvalid={!!formik.errors.email}
+                                    />
+                                    {formik.errors.email && formik.touched.email ? (
+                                        <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
+                                    ) : null}
+                                </div>
+                            </Col>
+                            <Col md={6}>
+                                <div className="mb-3">
+                                    <Form.Label htmlFor="phoneNumber">Phone Number</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        id="phoneNumber"
+                                        name="phoneNumber"
+                                        placeholder="Enter phone number"
+                                        value={formik.values.phoneNumber || ''}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        isInvalid={!!formik.errors.phoneNumber}
+                                    />
+                                    {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
+                                        <Form.Control.Feedback type="invalid">{formik.errors.phoneNumber}</Form.Control.Feedback>
+                                    ) : null}
+                                </div>
+                            </Col>
+                        </Row>
+                        <div className="mb-3">
+                            <Form.Label htmlFor="isActivated">Is Activated</Form.Label>
+                            <Form.Check
+                                type="checkbox"
+                                id="isActivated"
+                                name="isActivated"
+                                checked={formik.values.isActivated || false}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                            />
+                            {formik.errors.isActivated && formik.touched.isActivated ? (
+                                <div className="text-danger">{formik.errors.isActivated}</div>
+                            ) : null}
+                        </div>
+                        <div className="mb-3">
+                            <Form.Label htmlFor="role">Role</Form.Label>
+                            <Form.Control
+                                as="select"
+                                id="role"
+                                name="role"
+                                value={formik.values.role || ''}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                isInvalid={!!formik.errors.role}
+                            >
+                                <option value="">Select Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Staff">Staff</option>
+                            </Form.Control>
+                            {formik.errors.role && formik.touched.role ? (
+                                <Form.Control.Feedback type="invalid">{formik.errors.role}</Form.Control.Feedback>
+                            ) : null}
+                        </div>
+                        <div className="mb-3">
+                            <Form.Label htmlFor="password">Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                value={formik.values.password || ''}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                isInvalid={!!formik.errors.password}
+                            />
+                            {formik.errors.password && formik.touched.password ? (
+                                <Form.Control.Feedback type="invalid">{formik.errors.password}</Form.Control.Feedback>
+                            ) : null}
+                        </div>
+                        {/* <div className="mb-3">
+                            <Form.Label htmlFor="status">Status</Form.Label>
+                            <Form.Control
+                                as="select"
+                                id="status"
+                                name="status"
+                                value={formik.values.status || ''}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                isInvalid={!!formik.errors.status}
+                            >
+                                <option value="">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Disabled">Disabled</option>
+                            </Form.Control>
+                            {formik.errors.status && formik.touched.status ? (
+                                <Form.Control.Feedback type="invalid">{formik.errors.status}</Form.Control.Feedback>
+                            ) : null}
+                        </div> */}
+                        <div className="hstack gap-2 justify-content-end">
+                            <Button type="button" className="btn btn-light" onClick={handleClose}>Close</Button>
+                            <Button type="submit" className="btn btn-success" >Add User</Button>
+                        </div>
+                    </Form>
+                </Modal.Body>
+            </div>
+        </Modal>
+    </React.Fragment>
     )
 }
 

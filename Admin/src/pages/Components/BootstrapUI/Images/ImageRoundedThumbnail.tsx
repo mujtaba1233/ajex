@@ -12,7 +12,7 @@ import avatar3 from '../../../../assets/images/users/avatar-3.jpg'
 import avatar4 from '../../../../assets/images/users/avatar-4.jpg'
 
 const ImageRoundedThumbnail = () => {
-    document.title=" Images | Invoika - Admin & Dashboard Template";
+    document.title=" Images | Ajex - Admin & Dashboard Template";
 
     return (
         <React.Fragment>

@@ -3,7 +3,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import Breadcrumb from '../../../../Common/BreadCrumb';
 
 const DefaultButtons = () => {
-    document.title = " Buttons | Invoika -Admin & Dashboard Template";
+    document.title = " Buttons | Ajex -Admin & Dashboard Template";
     return (
         <React.Fragment>
             <Breadcrumb title="Buttons" pageTitle="Bootstrap Ui" />

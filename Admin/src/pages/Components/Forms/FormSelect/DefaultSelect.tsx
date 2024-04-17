@@ -4,7 +4,7 @@ import { Card, Col, Form, Row } from 'react-bootstrap';
 import { DefaultSelect } from './FormSelectCode';
 
 const DefaultSelects = () => {
-    document.title=" Form Select | Invoika Admin & Dashboard Template";
+    document.title=" Form Select | Ajexmin & Dashboard Template";
 
     return (
         <React.Fragment>

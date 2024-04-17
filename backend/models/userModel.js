@@ -1,44 +1,48 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../database'); // Import your Sequelize connection instance
+const Role = require('../models/roleModel');
 
-const userSchema = new mongoose.Schema(
-  {
-    firstName: {
-      type: String,
-      required: [true, 'Please add a first name'],
-    },
-    lastName: {
-      type: String,
-      required: [true, 'Please add a last name'],
-    },
-    password: {
-      type: String,
-      required: [true, 'Please add a password'],
-    },
-    role: {
-      type: mongoose.Types.ObjectId,
-      required: [true, 'Please add a password'],
-      ref: "Roles"
-    },
-    email: {
-      type: String,
-      required: [true, 'Please add an email'],
-      unique: true,
-    },
-    isAdmin: {
-      type: Boolean
-    },
-    isActivated: {
-      type: Boolean,
-      default: false
-    }, 
-    phoneNumber: {
-      type: String,
-    }
+const User = sequelize.define('User', {
+  firstName: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
-  {
-    timestamps: true,
-  }
-);
-const User = mongoose.model('User', userSchema);
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  roleId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'Roles',
+      key: 'id',
+    },
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  isAdmin: {
+    type: DataTypes.BOOLEAN,
+  },
+  isActivated: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  phoneNumber: {
+    type: DataTypes.STRING,
+  },
+}, {
+  timestamps: true, // Add timestamps
+  createdAt: 'createdAt', // Customize the field name for createdAt
+  updatedAt: 'updatedAt', // Customize the field name for updatedAt
+});
 
-module.exports = User
+User.belongsTo(Role, { foreignKey: 'roleId' });
+module.exports = User;

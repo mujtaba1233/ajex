@@ -10,7 +10,7 @@ const togglesetToast1 = () => setToast1(!setToast1);
 <Toast className="fade" show={toast1} onClose={togglesetToast1}>
     <Toast.Header>
         <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-        <span className="fw-semibold me-auto">Invoika</span>
+        <span className="fw-semibold me-auto">Ajex</span>
         <small>06 mins ago</small>
     </Toast.Header>
     <Toast.Body>
@@ -25,7 +25,7 @@ const togglesetToast2 = () => setToast2(!setToast2);
 <Toast className="fade" show={toast2} onClose={togglesetToast2}>
     <Toast.Header>
         <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-        <span className="fw-semibold me-auto">Invoika</span>
+        <span className="fw-semibold me-auto">Ajex</span>
         <small>11 mins ago</small>
     </Toast.Header>
     <Toast.Body>
@@ -43,7 +43,7 @@ const togglesetToast4 = () => setToast4(!setToast4);
 <Toast className="fade" show={toast3} onClose={togglesetToast3}>
     <Toast.Header>
         <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-        <span className="fw-semibold me-auto">Invoika</span>
+        <span className="fw-semibold me-auto">Ajex</span>
         <small>Just now</small>
     </Toast.Header>
     <Toast.Body>
@@ -54,7 +54,7 @@ const togglesetToast4 = () => setToast4(!setToast4);
 <Toast className="fade" show={toast4} onClose={togglesetToast4}>
     <Toast.Header>
         <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-        <span className="fw-semibold me-auto">Invoika</span>
+        <span className="fw-semibold me-auto">Ajex</span>
         <small>2 seconds ago</small>
     </Toast.Header>
     <Toast.Body>
@@ -69,7 +69,7 @@ const togglesetToast5 = () => setToast4(!setToast4);
 <Toast className="fade" show={toast5} onClose={togglesetToast5} style={{position: "absolute", top: "16px", right: "16px"}}>
     <Toast.Header>
         <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-        <span className="fw-semibold me-auto">Invoika</span>
+        <span className="fw-semibold me-auto">Ajex</span>
         <small>06 mins ago</small>
     </Toast.Header>
     <Toast.Body>
@@ -85,7 +85,7 @@ const togglesetToast6 = () => setToast5(!setToast6);
     <Toast className="fade" show={toast6} onClose={togglesetToast6}>
         <Toast.Header>
             <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-            <span className="fw-semibold me-auto">Invoika</span>
+            <span className="fw-semibold me-auto">Ajex</span>
             <small>11 mins ago</small>
         </Toast.Header>
         <Toast.Body>
@@ -132,7 +132,7 @@ const [position, setPosition] = useState<any>();
         <Toast show={toast11} onClose={() => setToast11(!toast11)}>
             <Toast.Header>
                 <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                <strong className="me-auto">Invoika</strong>
+                <strong className="me-auto">Ajex</strong>
                 <small>11 mins ago</small>
             </Toast.Header>
             <div className="toast-body">

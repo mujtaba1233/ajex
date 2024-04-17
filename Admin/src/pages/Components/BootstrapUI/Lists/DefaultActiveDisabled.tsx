@@ -8,7 +8,7 @@ import avatar2 from '../../../../assets/images/users/avatar-2.jpg'
 import avatar3 from '../../../../assets/images/users/avatar-3.jpg'
 
 const DefaultActiveDisabled = () => {
-    document.title=" Lists | Invoika - Admin & Dashboard Template";
+    document.title=" Lists | Ajex - Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page">

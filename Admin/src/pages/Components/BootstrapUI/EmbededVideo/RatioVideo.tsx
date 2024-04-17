@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { Ratio169Example, Ratio43Example, CustomRationExample, Ratio219Example, Ratio11Example } from './UiVideoCode';
 
 const RatioVideo = () => {
-    document.title=" Embed Video | Invoika Admin & Dashboard Template";
+    document.title=" Embed Video | Ajex Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page">

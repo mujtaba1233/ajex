@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import AuthCarousel from './AuthCarousel';
 
 const Lockscreen = () => {
-  document.title = "Lockscreen | Invoika Admin & Dashboard Template";
+  document.title = "Lockscreen | Ajex Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -68,7 +68,7 @@ const Lockscreen = () => {
                                 
                                 <div className="mt-5 text-center">
                                     <p className="mb-0 text-muted">©
-                                        <script>document.write(new Date().getFullYear())</script> Invoika. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                                        <script>document.write(new Date().getFullYear())</script> Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                                     </p>
                                 </div>
                             </div>

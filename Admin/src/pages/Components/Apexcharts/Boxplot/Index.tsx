@@ -6,7 +6,7 @@ import Scatter from './Scatter'
 import Horizontal from './Horizontal'
 
 const BoxPlot = () => {
-    document.title = "Apex Boxplot Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Boxplot Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

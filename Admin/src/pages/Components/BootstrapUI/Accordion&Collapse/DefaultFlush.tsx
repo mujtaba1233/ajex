@@ -3,7 +3,7 @@ import { Accordion, Card, Col, Row } from 'react-bootstrap';
 import Breadcrumb from '../../../../Common/BreadCrumb';
 
 const DefaultFlush = () => {
-    document.title=" Accordions | Invoika - Admin & Dashboard Template";
+    document.title=" Accordions | Ajex - Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page">

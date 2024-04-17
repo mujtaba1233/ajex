@@ -10,9 +10,9 @@ const PaymentActivity = () => {
                         <Col xl={8}>
                             <Card>
                                 <Card.Header className="border-0 align-items-center d-flex">
-                                    <h4 className="card-title mb-0 flex-grow-1">Payment Activity</h4>
+                                    <h4 className="card-title mb-0 flex-grow-1">Status Activity</h4>
                                     <div className="d-flex gap-1">
-                                        <button type="button" className="btn btn-soft-info btn-sm">
+                                        {/* <button type="button" className="btn btn-soft-info btn-sm">
                                             ALL
                                         </button>
                                         <button type="button" className="btn btn-soft-info btn-sm">
@@ -23,11 +23,11 @@ const PaymentActivity = () => {
                                         </button>
                                         <button type="button" className="btn btn-info btn-sm">
                                             1Y
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </Card.Header>
                                 <Card.Body className="py-1">
-                                    <Row className="gy-2">
+                                    {/* <Row className="gy-2">
                                         <Col md={4}>
                                             <h4 className="fs-22 mb-0">$23,590.00</h4>
                                         </Col>
@@ -41,7 +41,7 @@ const PaymentActivity = () => {
                                                 </div>
                                             </div>
                                         </Col>
-                                    </Row>
+                                    </Row> */}
 
                                     <PaymentActivityData className="apex-charts" dataColors='["--in-primary", "--in-light"]'/>
                                 </Card.Body>

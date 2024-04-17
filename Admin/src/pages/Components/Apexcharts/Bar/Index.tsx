@@ -13,7 +13,7 @@ import Groupes from './Groupes'
 import BarwithImages from './BarWithImages'
 
 const BarChart = () => {
-    document.title = "Apex Bar Charts | Invoika - Admin & Dashboard Template"
+    document.title = "Apex Bar Charts | Ajex - Admin & Dashboard Template"
     return (
         <React.Fragment>
             <div className="page-content">

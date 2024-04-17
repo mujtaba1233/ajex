@@ -4,7 +4,7 @@ import { Row, Col, Form, Card } from 'react-bootstrap';
 import { Checkbox } from './CheckboxRadioCode';
 
 const Checkboxform = () => {
-    document.title=" Checkboxs & Radios | Invoika Admin & Dashboard Template";
+    document.title=" Checkboxs & Radios | Ajexmin & Dashboard Template";
 
     return (
         <React.Fragment>

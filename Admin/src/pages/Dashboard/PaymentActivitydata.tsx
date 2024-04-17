@@ -1,20 +1,38 @@
 
+import { useEffect, useState } from "react";
 import getChartColorsArray from "../../Common/ChartsDynamicColor";
 import Chart from 'react-apexcharts'
+import axios from "axios";
 
 
-const PaymentActivityData = ({ dataColors }:any) => {
-    var chartbarBasicColors = getChartColorsArray(dataColors);
+const PaymentActivityData = ({ dataColors }: any) => {
+    const [invoiceData, setInvoiceData] = useState<any[]>([]);
 
-    const series:any = [{
-        name: 'Income',
-        data: [38, 48, 41, 52, 22, 43, 36, 48, 24, 28, 36, 44]
-    }, {
-        name: 'Outcome',
-        data: [13, 20, 20, 8, 13, 27, 18, 22, 15, 16, 24, 22]
-    }]
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/paymentActivities');
 
-    var options:any = {  
+                // Extract months and total amounts
+                const totalIncome = invoices.map((invoice: any) => invoice.totalIncome);
+                const totalOutcome = invoices.map((invoice: any) => invoice.totalOutcome);
+                console.log(totalIncome, totalOutcome)
+                // Update state with chart data and months
+                setInvoiceData([
+                    { name: 'Unpaid', data: totalIncome, color: '#c93c2f' },
+                    { name: 'Paid', data: totalOutcome,  color: '#F5F5F5' }
+                ]);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+    const series: any = invoiceData
+    var options: any = {
         chart: {
             height: 362,
             type: 'bar',
@@ -38,23 +56,29 @@ const PaymentActivityData = ({ dataColors }:any) => {
         dataLabels: {
             enabled: false
         },
-        
+
         xaxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         },
-        grid:{
+
+        // yaxis: {
+        //     min: 0,
+        //     max: 100,
+        //     tickAmount: 11,
+        // },
+
+        grid: {
             xaxis: {
                 lines: {
                     show: false
                 }
-            },   
+            },
             yaxis: {
                 lines: {
                     show: false
                 }
-            }, 
-          },
-        colors: chartbarBasicColors,
+            },
+        },
         legend: {
             show: false
         },
@@ -62,6 +86,7 @@ const PaymentActivityData = ({ dataColors }:any) => {
             opacity: 1
         },
     };
+
     return (
         <Chart
             dir="ltr"
@@ -72,6 +97,6 @@ const PaymentActivityData = ({ dataColors }:any) => {
             height={362}
         />
     )
-  }
+}
 
-export {PaymentActivityData}  
+export { PaymentActivityData }  

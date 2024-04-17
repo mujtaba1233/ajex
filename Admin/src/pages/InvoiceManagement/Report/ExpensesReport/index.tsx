@@ -5,7 +5,7 @@ import { expensesReport } from '../../../../Common/data/index';
 import TableContainer from '../../../../Common/Tabledata/TableContainer';
 
 const ExpensesReport = () => {
-    document.title="Expenses Report | Invoika Admin & Dashboard Template";
+    document.title="Expenses Report | Ajex Admin & Dashboard Template";
 
     interface columnsType {
         Header: any,

@@ -3,7 +3,7 @@ import { Card, Container, Row } from 'react-bootstrap'
 import BreadCrumb from '../../../../Common/BreadCrumb';
 
 const Colors = () => {
-  document.title="Colors | Invoika -Admin & Dashboard Template";
+  document.title="Colors | Ajex -Admin & Dashboard Template";
 
   return (
     <React.Fragment>

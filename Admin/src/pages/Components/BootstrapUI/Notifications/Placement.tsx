@@ -39,7 +39,7 @@ const Placement = () => {
                                         <Toast show={toast11} onClose={() => setToast11(!toast11)}>
                                             <Toast.Header>
                                                 <Image src={logosm} className="rounded me-2" alt="..." height="20" />
-                                                <strong className="me-auto">Invoika</strong>
+                                                <strong className="me-auto">Ajex</strong>
                                                 <small>11 mins ago</small>
                                             </Toast.Header>
                                             <div className="toast-body">

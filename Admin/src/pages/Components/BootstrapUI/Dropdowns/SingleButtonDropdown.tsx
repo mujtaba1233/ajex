@@ -4,7 +4,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 
 
 const SingleButtonDropdown = () => {
-    document.title=" Dropdowns | Invoika Admin & Dashboard Template";
+    document.title=" Dropdowns | Ajex Admin & Dashboard Template";
 
     return (
         <React.Fragment>

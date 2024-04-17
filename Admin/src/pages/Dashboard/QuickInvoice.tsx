@@ -56,7 +56,7 @@ const QuickInvoice = () => {
                                                     <td className="text-end">$44.99</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Discount <small className="text-muted">(Invoika15)</small></td>
+                                                    <td>Discount <small className="text-muted">(Ajex15)</small></td>
                                                     <td className="text-end">- $53.99</td>
                                                 </tr>
                                                 <tr>
@@ -86,7 +86,7 @@ const QuickInvoice = () => {
                         </Col>
 
                         
-                        <PaymentOverview/>    
+                           
                         
                         <RecentTransaction/>                    
                     </Row>

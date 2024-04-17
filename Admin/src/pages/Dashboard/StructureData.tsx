@@ -1,38 +1,58 @@
+import { useEffect, useState } from "react";
 import getChartColorsArray from "../../Common/ChartsDynamicColor";
 import Chart from 'react-apexcharts'
+import axios from "axios";
 
 
-const StructureData = ({ dataColors }:any) => {
+const StructureData = ({ dataColors }: any) => {
+    const [invoiceData, setInvoiceData] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/structure');
+                const approvedInvoices = Number(invoices[0].totalApproved) || 0;
+                const pendingInvoices = Number(invoices[0].totalPending) || 0;
+                const declinedInvoices = Number(invoices[0].totalDeclined) || 0;
+                setInvoiceData([pendingInvoices, declinedInvoices, approvedInvoices]);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     var chartPieBasicColors = getChartColorsArray(dataColors);
-    const series:any = [40, 18, 13]
-    var options:any = {  
+    const series: any = invoiceData
+    var options: any = {
         chart: {
             height: 300,
             type: 'donut',
-        }, 
-        labels: ["Invoiced", "Collected", "Outstanding"],
+        },
+        labels: ["Pending", "Declined", "Approved"],
         colors: chartPieBasicColors,
         plotOptions: {
-          pie: {
-              startAngle: 25,
-              donut: {
-              size: '78%',
-              }
-          }
+            pie: {
+                startAngle: 25,
+                donut: {
+                    size: '78%',
+                }
+            }
         },
-      
+
         legend: {
             show: false,
         },
-      
+
         dataLabels: {
-              style: {
+            style: {
                 fontSize: '11px',
                 fontFamily: 'DM Sans,sans-serif',
                 colors: undefined
-               },
-          
-              background: {
+            },
+
+            background: {
                 enabled: true,
                 foreColor: '#fff',
                 padding: 4,
@@ -40,7 +60,7 @@ const StructureData = ({ dataColors }:any) => {
                 borderWidth: 1,
                 borderColor: '#fff',
                 opacity: 1,
-              },
+            },
         },
         responsive: [{
             breakpoint: 600,
@@ -53,8 +73,8 @@ const StructureData = ({ dataColors }:any) => {
                 },
             }
         }]
-        }
- 
+    }
+
     return (
         <Chart
             dir="ltr"
@@ -65,6 +85,6 @@ const StructureData = ({ dataColors }:any) => {
             height={300}
         />
     )
-  }
+}
 
-export {StructureData}
+export { StructureData }

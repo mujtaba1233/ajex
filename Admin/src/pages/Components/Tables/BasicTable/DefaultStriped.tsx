@@ -5,7 +5,7 @@ import { DefaultTables, StrippedRow } from './BasicTableCode';
 import BreadCrumb from '../../../../Common/BreadCrumb';
 
 const DefaultStriped = () => {
-    document.title=" Basic Tables | Invoika Adminh & Dashboard Template";
+    document.title=" Basic Tables | Ajex Adminh & Dashboard Template";
 
     return (
         <React.Fragment>

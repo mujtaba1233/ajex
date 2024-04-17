@@ -3,7 +3,7 @@ import Breadcrumb from '../../../../Common/BreadCrumb';
 import { Card, Row, Table } from 'react-bootstrap';
 
 const GridOptions = () => {
-    document.title=" Grid | Invoika - Admin & Dashboard Template";
+    document.title=" Grid | Ajex - Admin & Dashboard Template";
 
     return (
         <React.Fragment>

@@ -20,7 +20,7 @@ export const GET_TRANSACTIONS = "/get-transactions";
 
 //Invoices
 export const GET_CLIENT_INVOICES = URL + "/invoices/";
-export const DELETE_CLIENT_INVOICES = "/delete-client-invoices";
+export const DELETE_CLIENT_INVOICES = URL + "/invoices/";
 export const EDIT_CLIENT_INVOICES = "/edit-client-invoices";
 export const ADD_EDIT_CLIENT_INVOICES = URL +  "/invoices/addOrEditClientInvoices";
 

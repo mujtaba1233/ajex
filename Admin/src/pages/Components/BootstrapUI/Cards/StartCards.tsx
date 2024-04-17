@@ -11,7 +11,7 @@ import Ima3 from "../../../../assets/images/small/img-3.jpg"
 import Ima4 from "../../../../assets/images/small/img-4.jpg"
 
 const StartCards = () => {
-    document.title=" Cards | Invoika -Admin & Dashboard Template";
+    document.title=" Cards | Ajex -Admin & Dashboard Template";
 
     return (
         <React.Fragment>
