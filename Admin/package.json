@@ -1,6 +1,7 @@
 {
   "name": "ajex",
   "version": "0.1.0",
+  "homepage": "https://ajex-fin-portal.com",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "39.0.1",

@@ -3,16 +3,23 @@ import { Card, Col, Row } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import { Donut1, Donut2, Donut3 } from './ThisWeekOverviewData';
 import axios from 'axios';
+import { useProfile } from '../../Hooks/UserHooks';
 
 
 
 const ThisWeekOverview = () => {
     const [invoiceData, setInvoiceData] = useState<any[]>([]);
+    const { token } = useProfile();
 
     useEffect(() => {
         const fetchData = async () => {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
             try {
-                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/structure');
+                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/structure',config);
                 const approvedInvoices = Number(invoices[0].totalApproved) || 0;
                 const pendingInvoices = Number(invoices[0].totalPending) || 0;
                 const declinedInvoices = Number(invoices[0].totalDeclined) || 0;

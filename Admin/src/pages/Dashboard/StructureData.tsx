@@ -2,15 +2,22 @@ import { useEffect, useState } from "react";
 import getChartColorsArray from "../../Common/ChartsDynamicColor";
 import Chart from 'react-apexcharts'
 import axios from "axios";
+import { useProfile } from "../../Hooks/UserHooks";
 
 
 const StructureData = ({ dataColors }: any) => {
     const [invoiceData, setInvoiceData] = useState<any[]>([]);
+    const { token } = useProfile();
 
     useEffect(() => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
         const fetchData = async () => {
             try {
-                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/structure');
+                const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/structure', config);
                 const approvedInvoices = Number(invoices[0].totalApproved) || 0;
                 const pendingInvoices = Number(invoices[0].totalPending) || 0;
                 const declinedInvoices = Number(invoices[0].totalDeclined) || 0;

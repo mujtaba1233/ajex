@@ -2,15 +2,22 @@ import { useEffect, useState } from "react";
 import getChartColorsArray from "../../Common/ChartsDynamicColor";
 import Chart from 'react-apexcharts'
 import axios from "axios";
+import { useProfile } from "../../Hooks/UserHooks";
 
 
 const PaymentOverviewData = ({ dataColors }: any) => {
   const [invoiceData, setInvoiceData] = useState<any[]>([]);
+  const { token } = useProfile();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/paymentActivities');
+        const config = {
+          headers: {
+              Authorization: `Bearer ${token}`,
+          },
+      }
+        const invoices: any = await axios.get(process.env.REACT_APP_API_URL + '/invoices/paymentActivities', config);
 
         // Extract months and total amounts
         const totalIncome = invoices.map((invoice: any) => invoice.totalIncome);
