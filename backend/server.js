@@ -22,7 +22,9 @@ const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
+  port: 3306,
   database: process.env.DB_NAME,
+
 });
 
 db.connect((err) => {
@@ -39,4 +41,4 @@ app.use('/api/users', userRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen();
