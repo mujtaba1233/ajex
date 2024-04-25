@@ -50,8 +50,8 @@ const Login = (props:any) => {
         enableReinitialize: true,
 
         initialValues: {
-            email: userLogin.email ||"super.admin@ajex.com" || '',
-            password: userLogin.password ||"Admin125!@%" || '',
+            email: userLogin.email,
+            password: userLogin.password,
         },
         validationSchema: Yup.object({
             email: Yup.string().required("Please Enter Your Email"),
@@ -213,7 +213,7 @@ const Login = (props:any) => {
 
                                         <div className="mt-5 text-center">
                                             <p className="mb-0 text-muted">
-                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex
+                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex Advertising Advertising
                                             </p>
                                         </div>
                                     </div>
