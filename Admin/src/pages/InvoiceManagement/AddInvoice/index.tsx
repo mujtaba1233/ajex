@@ -491,7 +491,7 @@ const AddInvoice = () => {
                                             </Col>
 
                                             <Col lg={4} className="ms-auto">
-                                                <div className="profile-user mx-auto  mb-3">
+                                                {/* <div className="profile-user mx-auto  mb-3">
                                                     <input id="profile-img-file-input" type="file" className="profile-img-file-input" />
                                                     <label htmlFor="profile-img-file-input" className="d-block" tabIndex={0}>
                                                         <span className="overflow-hidden border border-dashed d-flex align-items-center justify-content-center rounded" style={{ height: "60px", width: "256px" }}>
@@ -499,7 +499,7 @@ const AddInvoice = () => {
                                                             <img src={logoLight} className="card-logo card-logo-light user-profile-image img-fluid" alt="logo light" />
                                                         </span>
                                                     </label>
-                                                </div>
+                                                </div> */}
 
 
                                                 <div>

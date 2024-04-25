@@ -23,7 +23,7 @@ const AddUsers = ({ isShow, handleClose, handleShow }: userProps) => {
             lastName: '',
             email: '',
             phoneNumber: '',
-            isActivated: false,
+            isActivated: true,
             role: '',
             password: '',
             // status: ''

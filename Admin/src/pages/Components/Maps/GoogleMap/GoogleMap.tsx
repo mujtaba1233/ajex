@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import Breadcrumb from '../../../../Common/BreadCrumb';
-import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
+// import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 // import './google-map.scss';
 
 
@@ -18,10 +18,10 @@ const GoogleMap = (props: any) => {
   return (
     <React.Fragment>
       <div className="page-content">
-        <Container fluid>
+        {/* <Container fluid>
           <Breadcrumb title="Maps" pageTitle="Google Maps" />
           <Row>
-                {/* <------------------------------Markers--------------------> */}
+
                 <Col lg={6}>
                     <Card>
                         <Card.Header>
@@ -45,7 +45,7 @@ const GoogleMap = (props: any) => {
                         </Card.Body>
                     </Card>
                 </Col>
-                 {/* <------------------------------Overlays--------------------> */}
+      
                 <Col lg={6}>
                     <Card>
                         <Card.Header>
@@ -64,7 +64,7 @@ const GoogleMap = (props: any) => {
                     </Card>
                 </Col>
             </Row>
-                 {/* <------------------------------Street Views--------------------> */}
+ 
 
                  <Row>
                             <Col lg={6}>
@@ -84,7 +84,7 @@ const GoogleMap = (props: any) => {
                                     </Card.Body>
                                 </Card>
                             </Col>                           
-                         {/* <------------------------------Map Types--------------------> */}
+
                             <Col lg={6}>
                                 <Card>
                                     <Card.Header>
@@ -104,20 +104,14 @@ const GoogleMap = (props: any) => {
                                 </Card>
                             </Col>                            
                         </Row>
-                        </Container>
+                        </Container> */}
 
       </div >
     </React.Fragment >
   )
 }
 
-export default (
-  GoogleApiWrapper({
-      apiKey: "AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE",
-      LoadingContainer: LoadingContainer,
-      v: "3",
-  })(GoogleMap)
-)
+export default  GoogleMap
 
 
 

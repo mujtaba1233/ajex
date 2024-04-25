@@ -263,7 +263,7 @@ const authProtectedRoutes: Array<RouteObject> = [
     { path: "/icons-bootstrap", component: <BootstrapIcon /> },
 
     // Google
-    { path: "/maps-google", component: <GoogleMap /> },
+    // { path: "/maps-google", component: <GoogleMap /> },
 
     // ApexCharts
 

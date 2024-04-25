@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
@@ -41,4 +41,4 @@ app.use('/api/users', userRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 8080;
-app.listen();
+app.listen(PORT);
