@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   user: {},
-  error: "", // for error message
+  error: false, // for error message
   loading: false,
   isUserLogout: false,
-  errorMsg: false, // for error
+  errorMsg: "", // for error
 };
 
 const loginSlice = createSlice({
@@ -13,23 +13,25 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     apiError(state, action) {
-      state.error = action.payload.data;
+      state.error = true;
       state.loading = true;
       state.isUserLogout = false;
-      state.errorMsg = true;
+      state.errorMsg = "Invalid email or password";
     },
     loginSuccess(state, action) {
       state.user = action.payload
       state.loading = false;
-      state.errorMsg = false;
+      state.error = false;
+
+      state.errorMsg = "";
     },
     logoutUserSuccess(state, action) {
       state.isUserLogout = true
     },
     reset_login_flag(state) {
-      state.error = ""
+      state.error = false
       state.loading = false;
-      state.errorMsg = false;
+      state.errorMsg = "";
     }
   },
 });

@@ -155,7 +155,7 @@ const ForgotPassword = (props:any) => {
                                     
                                     <div className="mt-5 text-center">
                                         <p className="mb-0 text-muted">©
-                                            <script>document.write(new Date().getFullYear())</script> Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex Advertising Advertising
+                                            <script>document.write(new Date().getFullYear())</script> Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex Advertising 
                                         </p>
                                     </div>
                                 </div>

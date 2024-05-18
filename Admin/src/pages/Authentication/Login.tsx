@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import { loginUser, resetLoginFlag, socialLogin } from '../../slices/thunk';
 import * as Yup from "yup";
+import { toast } from 'react-toastify';
 
 const Login = (props:any) => {
   document.title = "Login | Ajex Admin & Dashboard Template";
@@ -107,7 +108,7 @@ const Login = (props:any) => {
                                                         </div>
 
                                                         <div className="mt-4">
-                                                        {error && error ? (<Alert variant="danger"> {error} </Alert>) : null}
+                                                        {error && error ? (<Alert variant="danger"> {errorMsg} </Alert>) : null}
                                                         <Form
                                                             action='#'
                                                             onSubmit={(e) => {
@@ -132,8 +133,8 @@ const Login = (props:any) => {
                                                                         }
 
                                                                     />
-                                                                    {validation.touched.email && validation.errors.email ? (
-                                                                        <Form.Control.Feedback type="invalid">{validation.errors.email}</Form.Control.Feedback>
+                                                                    {(validation.touched.email && validation.errors.email)  ? (
+                                                                        <Form.Control.Feedback type="invalid">{validation.errors.email ? validation.errors.email: "Invalid Email" }</Form.Control.Feedback>
                                                                     ) : null}
                                                                 </div>
                                                                 </Form.Group>                                                                
@@ -156,8 +157,8 @@ const Login = (props:any) => {
                                                                             validation.touched.password && validation.errors.password ? true : false
                                                                         }
                                                                     />
-                                                                    {validation.touched.password && validation.errors.password ? (
-                                                                        <Form.Control.Feedback type="invalid">{validation.errors.password}</Form.Control.Feedback>
+                                                                    {(validation.touched.password && validation.errors.password)  ? (
+                                                                        <Form.Control.Feedback type="invalid">{validation.errors.password ? validation.errors.password: "Invalid Password"}</Form.Control.Feedback>
                                                                     ) : null}
                                                                     <button className="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon" onClick={() => setPasswordShow(!passwordShow)}>
                                                                         <i className="ri-eye-fill align-middle"></i>
@@ -213,7 +214,7 @@ const Login = (props:any) => {
 
                                         <div className="mt-5 text-center">
                                             <p className="mb-0 text-muted">
-                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex Advertising Advertising
+                                                &copy; {new Date().getFullYear()} Ajex. Crafted with <i className="mdi mdi-heart text-danger"></i> by Digiex Advertising 
                                             </p>
                                         </div>
                                     </div>

@@ -39,10 +39,10 @@ const ProfileDropdown = () => {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu-end">                        
                         <Dropdown.Item className="dropdown-item" href="#"><i className="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item" href="#"><i className="bx bx-wallet fs-15 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item d-block" href="#"><span className="badge bg-success float-end">11</span><i className="bx bx-wrench fs-15 align-middle me-1"></i> <span key="t-settings">Settings</span></Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item" href={process.env.PUBLIC_URL + "/auth-lockscreen"}><i className="bx bx-lock-open fs-15 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></Dropdown.Item>
-                        <div className="dropdown-divider"></div>
+                        {/* <Dropdown.Item className="dropdown-item" href="#"><i className="bx bx-wallet fs-15 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></Dropdown.Item> */}
+                        {/* <Dropdown.Item className="dropdown-item d-block" href="#"><span className="badge bg-success float-end">11</span><i className="bx bx-wrench fs-15 align-middle me-1"></i> <span key="t-settings">Settings</span></Dropdown.Item> */}
+                        {/* <Dropdown.Item className="dropdown-item" href={process.env.PUBLIC_URL + "/auth-lockscreen"}><i className="bx bx-lock-open fs-15 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></Dropdown.Item> */}
+                        {/* <div className="dropdown-divider"></div> */}
                         <Dropdown.Item className="dropdown-item text-danger" href={process.env.PUBLIC_URL + "/logout"}><i className="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

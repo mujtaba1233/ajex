@@ -4,6 +4,7 @@
 import { getFirebaseBackend } from '../../helpers/firebase_helper';
 import { loginSuccess, logoutUserSuccess, apiError, reset_login_flag } from './reducer';
 import { postFakeLogin, postJwtLogin } from '../../helpers/fakebackend_helper';
+import { toast } from 'react-toastify';
 
 
 export const loginUser = (user: any, history: any) => async (dispatch: any) => {   
@@ -53,6 +54,7 @@ export const loginUser = (user: any, history: any) => async (dispatch: any) => {
     }
   } catch (error) {
     dispatch(apiError(error));
+    toast.error("Invalid Email or Password")
   }
 };
 
